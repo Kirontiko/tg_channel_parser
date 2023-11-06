@@ -41,6 +41,8 @@ def write_to_csv(csv_path, posts, multiple=False) -> None:
 
 def main() -> None:
     for file in os.listdir("pages"):
+        if file.endswith(".gitkeep"):
+            continue
         if not file.endswith(".html"):
             for part in os.listdir(os.path.join("pages", file)):
                 parsed_page = parse_page(part, dirname=file, multiple=True)
